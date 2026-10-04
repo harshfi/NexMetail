@@ -21,10 +21,10 @@ export function IndustriesGrid() {
             as="li"
             key={ind.id}
             delay={(i % 3) * 0.06}
-            className="rounded-[var(--radius-card)] border border-line bg-bg p-6"
+            className="group rounded-[var(--radius-card)] border border-line bg-bg p-6 transition-[translate,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-copper/40 hover:bg-surface motion-reduce:hover:translate-y-0"
           >
             <div className="flex items-center gap-4">
-              <span className="grid size-11 shrink-0 place-items-center rounded-full border border-copper/40 bg-surface text-copper-dark">
+              <span className="grid size-11 shrink-0 place-items-center rounded-full border border-copper/40 bg-surface text-copper-dark transition-colors duration-300 group-hover:border-transparent group-hover:bg-copper-gradient group-hover:text-white">
                 <Icon name={ind.icon} className="size-5" />
               </span>
               <h3 className="text-lg font-semibold">{ind.name}</h3>

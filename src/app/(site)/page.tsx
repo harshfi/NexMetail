@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { ProductCard } from "@/components/product/product-card";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqList } from "@/components/sections/faq-list";
+import { GradeMarquee } from "@/components/sections/grade-marquee";
 import { HomeHero } from "@/components/sections/home-hero";
 import { IndustriesGrid } from "@/components/sections/industries-grid";
 import { LocationBand } from "@/components/sections/location-band";
@@ -41,6 +42,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <GradeMarquee />
       <StatsStrip />
 
       <Section aria-labelledby="products-title">

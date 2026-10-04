@@ -18,9 +18,9 @@ export function WhyUsGrid() {
             as="li"
             key={point.id}
             delay={(i % 3) * 0.06}
-            className="rounded-[var(--radius-card)] border border-line/70 bg-surface p-7 shadow-soft sm:p-8"
+            className="group rounded-[var(--radius-card)] border border-line/70 bg-surface p-7 shadow-soft transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-copper/40 hover:shadow-lift motion-reduce:hover:translate-y-0 sm:p-8"
           >
-            <span className="grid size-11 place-items-center rounded-[10px] bg-copper-soft text-copper-dark">
+            <span className="grid size-11 place-items-center rounded-[10px] bg-copper-soft text-copper-dark transition-colors duration-300 group-hover:bg-copper-gradient group-hover:text-white">
               <Icon name={point.icon} className="size-5" />
             </span>
             <h3 className="mt-5 text-lg font-semibold">{point.title}</h3>

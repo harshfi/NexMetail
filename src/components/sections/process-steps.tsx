@@ -1,3 +1,4 @@
+import { DrawLine } from "@/components/motion/draw-line";
 import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
@@ -29,19 +30,42 @@ export function ProcessSteps({
           ) : undefined
         }
       />
+      {/* Copper rail that draws across the steps on wide screens. */}
+      <div aria-hidden className="relative mb-6 hidden grid-cols-5 gap-4 xl:grid">
+        <div className="absolute top-1/2 right-0 left-0 h-px -translate-y-1/2 bg-night-line" />
+        <DrawLine
+          duration={1.8}
+          className="absolute top-1/2 right-0 left-0 h-0.5 -translate-y-1/2 bg-copper-gradient"
+        />
+        {processSteps.map((step, i) => (
+          <Reveal
+            key={step.id}
+            delay={0.25 + i * 0.3}
+            className="flex justify-start pl-6"
+          >
+            <span className="relative grid size-4 place-items-center">
+              <span className="absolute inset-0 animate-ping rounded-full bg-copper/40 [animation-duration:2.4s]" />
+              <span className="size-3 rounded-full border-2 border-night bg-copper-light" />
+            </span>
+          </Reveal>
+        ))}
+      </div>
       <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {processSteps.map((step, i) => (
           <Reveal
             as="li"
             key={step.id}
             delay={i * 0.06}
-            className="relative rounded-[var(--radius-card)] border border-night-line bg-night-2 p-6"
+            className="group relative rounded-[var(--radius-card)] border border-night-line bg-night-2 p-6 transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-copper/50 motion-reduce:hover:translate-y-0"
           >
             <div className="flex items-center justify-between">
-              <span className="grid size-11 place-items-center rounded-[10px] bg-copper-gradient text-white">
+              <span className="grid size-11 place-items-center rounded-[10px] bg-copper-gradient text-white transition-transform duration-300 group-hover:-rotate-6">
                 <Icon name={step.icon} className="size-5" />
               </span>
-              <span className="font-display text-4xl text-white/15" aria-hidden>
+              <span
+                className="font-display text-4xl text-white/15 transition-colors duration-300 group-hover:text-copper-light/60"
+                aria-hidden
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>

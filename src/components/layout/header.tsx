@@ -66,8 +66,12 @@ function MobileMenuContent() {
   return (
     <nav aria-label="Mobile" className="flex flex-col gap-10">
       <ul className="flex flex-col">
-        {siteConfig.nav.map((item) => (
-          <li key={item.href} className="border-b border-night-line">
+        {siteConfig.nav.map((item, i) => (
+          <li
+            key={item.href}
+            style={{ animationDelay: `${60 + i * 50}ms` }}
+            className="animate-rise-sm border-b border-night-line"
+          >
             <Link
               href={item.href}
               className="block py-4 font-display-tight text-4xl text-white hover:text-copper-light"
@@ -78,7 +82,7 @@ function MobileMenuContent() {
         ))}
       </ul>
 
-      <div>
+      <div style={{ animationDelay: "320ms" }} className="animate-rise-sm">
         <p className="mb-3 text-xs font-semibold tracking-[0.08em] text-copper-light uppercase">
           Products
         </p>
@@ -96,7 +100,10 @@ function MobileMenuContent() {
         </ul>
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div
+        style={{ animationDelay: "400ms" }}
+        className="flex animate-rise-sm flex-col gap-3"
+      >
         <ButtonLink href="/contact#enquiry" size="lg" arrow>
           Get a Quote
         </ButtonLink>

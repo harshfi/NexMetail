@@ -25,7 +25,7 @@ export function CopperPlaceholder({
         aria-hidden
         viewBox="0 0 400 300"
         preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 size-full mix-blend-soft-light"
+        className="absolute inset-0 size-full animate-kenburns mix-blend-soft-light"
       >
         {Array.from({ length: 9 }, (_, i) => (
           <path

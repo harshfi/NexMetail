@@ -45,12 +45,10 @@ export const siteConfig = {
   },
 
   contact: {
-    // TODO(owner): real sales phone number, in E.164 format (e.g. +919812345678).
-    phone: "+91XXXXXXXXXX",
-    // TODO(owner): how the phone number should be displayed.
-    phoneDisplay: "+91-XXXXXXXXXX",
-    // TODO(owner): real WhatsApp number, digits only with country code (e.g. 919812345678).
-    whatsapp: "91XXXXXXXXXX",
+    phone: "+917394889499",
+    phoneDisplay: "+91 73948 89499",
+    // TODO(owner): confirm WhatsApp is on the same number as the sales phone.
+    whatsapp: "917394889499",
     // TODO(owner): confirm the sales email address.
     email: "sales@nexmetal.in",
   },

@@ -11,8 +11,9 @@ const base =
   "group/btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] font-semibold uppercase tracking-[0.06em] transition-[background-color,color,border-color,box-shadow,transform] duration-200 disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
+  // Diagonal shine sweeps across on hover.
   primary:
-    "bg-copper-dark text-white shadow-soft hover:bg-copper-deep hover:shadow-lift active:translate-y-px",
+    "relative overflow-hidden bg-copper-dark text-white shadow-soft hover:bg-copper-deep hover:shadow-lift active:translate-y-px after:pointer-events-none after:absolute after:inset-y-0 after:-left-3/4 after:w-1/2 after:skew-x-[-20deg] after:bg-gradient-to-r after:from-transparent after:via-white/25 after:to-transparent after:transition-[left] after:duration-700 hover:after:left-[125%] motion-reduce:after:hidden",
   outline:
     "border border-ink/15 bg-surface text-ink hover:border-copper hover:text-copper-dark",
   "outline-light":

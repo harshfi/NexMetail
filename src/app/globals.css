@@ -31,6 +31,74 @@
   --shadow-lift: 0 22px 40px -18px rgb(0 0 0 / 0.25);
 
   --animate-kenburns: kenburns 24s ease-in-out infinite alternate;
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise-sm: rise-sm 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-tile: tile 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-glow: glow 9s ease-in-out infinite alternate;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes rise-sm {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes tile {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0) scale(0.94);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      opacity: 0.55;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(-6%, 4%, 0) scale(1.12);
+    }
+  }
 
   @keyframes kenburns {
     from {
@@ -87,6 +155,8 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Side-entering reveal animations must never create horizontal scroll. */
+    overflow-x: clip;
   }
 
   h1,
@@ -99,6 +169,23 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  /* Smooth FAQ open/close where supported (progressive enhancement). */
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+    details::details-content {
+      height: 0;
+      overflow: clip;
+      transition:
+        height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        content-visibility 0.35s allow-discrete;
+    }
+    details[open]::details-content {
+      height: auto;
+    }
   }
 
   /* Lock background scroll while the mobile menu dialog is open. */
@@ -128,6 +215,7 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }

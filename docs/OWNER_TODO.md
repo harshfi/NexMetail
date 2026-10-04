@@ -3,8 +3,8 @@
 Each item matches a `// TODO(owner):` comment in the code. Find them all with `grep -rn "TODO(owner)" src`.
 
 ## Contact details (`src/config/site.ts`)
-- [ ] **Sales phone number.** Needed in full international format, e.g. `+919812345678`, plus how it should be displayed, e.g. `+91-98123-45678`.
-- [ ] **WhatsApp number.** Digits only, with the country code, e.g. `919812345678`.
+- [x] **Sales phone number.** +91 73948 89499
+- [ ] **WhatsApp number.** Currently set to the same number (+91 73948 89499). Confirm, or give a different WhatsApp number.
 - [ ] **Sales email.** Confirm `sales@nexmetal.in`, or give the correct address.
 - [ ] **Business hours.** Confirm "Mon–Sat, 9:30 AM – 7:00 PM IST".
 - [ ] **Google Maps pin.** The exact latitude/longitude of the yard. Until then, map links search by the address.

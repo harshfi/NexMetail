@@ -75,7 +75,8 @@ export function ProductsMenu({
           aria-expanded={open}
           aria-controls={panelId}
           aria-label={`${open ? "Hide" : "Show"} product list`}
-          onClick={() => setOpen((o) => !o)}
+          // Hover already opens it for mice, so a mouse click keeps it open; keyboard (detail 0) toggles.
+          onClick={(e) => setOpen((o) => (e.detail === 0 ? !o : true))}
           className="rounded p-1"
         >
           <ChevronDown
@@ -87,8 +88,13 @@ export function ProductsMenu({
 
       <div
         id={panelId}
-        hidden={!open}
-        className="absolute top-full left-1/2 w-80 -translate-x-1/2 pt-3"
+        // `invisible` (visibility: hidden) keeps it out of the tab order and a11y tree while closed.
+        className={cn(
+          "absolute top-full left-1/2 w-80 -translate-x-1/2 pt-3 transition-[opacity,translate,visibility] duration-200 ease-out",
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-1 opacity-0",
+        )}
       >
         <ul className="rounded-[var(--radius-card)] border border-line bg-surface p-2 text-ink shadow-lift">
           {products.map((p) => (

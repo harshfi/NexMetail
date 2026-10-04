@@ -25,7 +25,7 @@ export function PageHero({
     <section className="relative isolate overflow-hidden bg-night pt-32 pb-14 text-white/75 sm:pt-40 sm:pb-20">
       <div
         aria-hidden
-        className="absolute -top-40 right-[-10%] -z-10 size-[36rem] rounded-full bg-copper/25 blur-[120px]"
+        className="absolute -top-40 right-[-10%] -z-10 size-[36rem] animate-glow rounded-full bg-copper/25 blur-[120px]"
       />
       <div
         aria-hidden
@@ -33,7 +33,7 @@ export function PageHero({
       />
       <Container>
         {crumbs && crumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-6">
+          <nav aria-label="Breadcrumb" className="mb-6 animate-rise">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-white/60">
               {crumbs.map((crumb, i) => (
                 <li key={crumb.label} className="flex items-center gap-1.5">
@@ -53,17 +53,21 @@ export function PageHero({
           </nav>
         )}
         {eyebrow && (
-          <Chip tone="dark" className="mb-5">
+          <Chip tone="dark" className="mb-5 animate-rise [animation-delay:60ms]">
             {eyebrow}
           </Chip>
         )}
-        <h1 className="max-w-4xl font-display-tight text-5xl text-white sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-4xl animate-rise font-display-tight text-5xl text-white [animation-delay:120ms] sm:text-7xl lg:text-[5.5rem]">
           {title}
         </h1>
         {lead && (
-          <p className="mt-5 max-w-2xl text-base text-white/75 sm:text-lg">{lead}</p>
+          <p className="mt-5 max-w-2xl animate-rise text-base text-white/75 [animation-delay:200ms] sm:text-lg">
+            {lead}
+          </p>
         )}
-        {children}
+        {children && (
+          <div className="animate-rise [animation-delay:280ms]">{children}</div>
+        )}
       </Container>
     </section>
   );

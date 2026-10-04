@@ -58,7 +58,10 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
           className="absolute -top-40 left-[-10%] -z-10 size-[36rem] rounded-full bg-copper/20 blur-[120px]"
         />
         <Container>
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-white/60">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-8 animate-rise text-sm text-white/60"
+          >
             <ol className="flex flex-wrap items-center gap-1.5">
               <li>
                 <Link href="/" className="hover:text-copper-light">
@@ -83,7 +86,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
           </nav>
 
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-5">
+            <div className="animate-tile lg:col-span-5">
               <ProductMedia
                 product={product}
                 priority
@@ -91,7 +94,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
                 className="border-white/10"
               />
             </div>
-            <div className="lg:col-span-7">
+            <div className="animate-rise [animation-delay:150ms] lg:col-span-7">
               <Chip tone="dark">{product.eyebrow}</Chip>
               <h1 className="mt-5 font-display-tight text-5xl text-white sm:text-7xl">
                 {product.name}

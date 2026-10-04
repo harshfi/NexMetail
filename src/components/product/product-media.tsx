@@ -33,7 +33,7 @@ export function ProductMedia({
   return (
     <div
       className={cn(
-        "rounded-[var(--radius-card)] border border-line/70 bg-surface p-4 shadow-soft sm:p-6",
+        "group/media rounded-[var(--radius-card)] border border-line/70 bg-surface p-4 shadow-soft sm:p-6",
         className,
       )}
     >
@@ -47,7 +47,7 @@ export function ProductMedia({
             fill
             sizes={sizes}
             priority={priority}
-            className="object-cover"
+            className="object-cover transition-transform duration-700 ease-out group-hover/media:scale-105"
           />
         ) : (
           <ProductGallery

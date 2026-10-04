@@ -61,7 +61,7 @@ export function ProductGallery({
                 fill
                 sizes={sizes}
                 priority={priority && i === 0}
-                className="object-cover"
+                className="object-cover transition-transform duration-700 ease-out group-hover/media:scale-105"
               />
             </div>
           ))}

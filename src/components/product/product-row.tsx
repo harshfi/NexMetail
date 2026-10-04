@@ -29,7 +29,10 @@ export function ProductRow({
       aria-labelledby={`${product.slug}-title`}
       className="grid scroll-mt-28 items-center gap-8 lg:grid-cols-12 lg:gap-14"
     >
-      <Reveal className={cn("lg:col-span-5", reverse && "lg:order-last")}>
+      <Reveal
+        from={reverse ? "right" : "left"}
+        className={cn("lg:col-span-5", reverse && "lg:order-last")}
+      >
         <ProductMedia
           product={product}
           priority={priority}
