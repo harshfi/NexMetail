@@ -55,7 +55,7 @@ src/
 public/images/{brand,products,hero,process}
 ```
 
-Scripts: `npm run dev | build | lint | typecheck | format`. Env vars documented in `.env.example`.
+Scripts: `npm run dev | build | lint | typecheck | format | check:images`. Product images resolve via `src/lib/images.ts` (server-only); missing files render the copper placeholder. Owner unknowns: `// TODO(owner):` comments, collected in `docs/OWNER_TODO.md` — keep both in sync. Env vars documented in `.env.example`.
 
 ## Rules
 
