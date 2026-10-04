@@ -22,7 +22,7 @@
   --color-night-line: #22314a;
 
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bebas), "Oswald", "Arial Narrow", sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 14px;
   --radius-btn: 10px;
@@ -224,13 +224,12 @@
   }
 }
 
-/* Display headings: condensed, uppercase, tight. */
+/* Display headings: modern grotesk, sentence case, tight tracking. */
 @utility font-display-tight {
   font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.95;
-  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  font-weight: 600;
 }
 
 /* Long-form prose (legal pages, product long description). */
@@ -243,10 +242,10 @@
   & h2 {
     margin-top: 2.25em;
     font-family: var(--font-display);
-    text-transform: uppercase;
-    font-size: 1.9rem;
-    line-height: 1;
-    letter-spacing: 0.01em;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
   }
   & h3 {
     margin-top: 1.75em;

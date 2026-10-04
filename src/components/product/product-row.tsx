@@ -15,13 +15,18 @@ import { ProductMedia } from "./product-media";
  */
 export function ProductRow({
   product,
+  index,
+  total,
   reverse = false,
   priority = false,
 }: {
   product: Product;
+  index: number;
+  total: number;
   reverse?: boolean;
   priority?: boolean;
 }) {
+  const number = String(index + 1).padStart(2, "0");
   const href = `/products/${product.slug}`;
   return (
     <article
@@ -35,6 +40,7 @@ export function ProductRow({
       >
         <ProductMedia
           product={product}
+          badge={`${number} / ${String(total).padStart(2, "0")}`}
           priority={priority}
           sizes="(min-width: 1280px) 460px, (min-width: 1024px) 40vw, 100vw"
         />
@@ -44,7 +50,7 @@ export function ProductRow({
         <Chip>{product.eyebrow}</Chip>
         <h2
           id={`${product.slug}-title`}
-          className="mt-4 font-display-tight text-[2.6rem] sm:text-5xl"
+          className="mt-4 font-display-tight text-[2rem] sm:text-[2.6rem]"
         >
           <Link href={href} className="hover:text-copper-dark">
             {product.name}

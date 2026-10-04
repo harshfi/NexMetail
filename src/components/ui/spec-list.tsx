@@ -1,10 +1,10 @@
 import type { ProductSpec } from "@/content/products";
 import { cn } from "@/lib/utils";
 
-/** "PRODUCT SPECIFICATIONS" card with a 2-column copper-dot grid. */
+/** Specifications as a two-column label/value table. */
 export function SpecList({
   specs,
-  title = "Product specifications",
+  title = "Specifications",
   headingLevel = "h3",
   className,
 }: {
@@ -17,24 +17,24 @@ export function SpecList({
   return (
     <div
       className={cn(
-        "rounded-[var(--radius-card)] border border-line/70 bg-surface p-5 shadow-soft sm:p-6",
+        "overflow-hidden rounded-[18px] border border-line bg-surface shadow-soft",
         className,
       )}
     >
-      <Heading className="border-b border-line pb-3 text-[13px] font-bold tracking-[0.08em] text-ink uppercase">
+      <Heading className="flex items-center gap-2 border-b border-line bg-bg/60 px-5 py-3 text-sm font-semibold text-ink">
+        <span aria-hidden className="size-1.5 rounded-full bg-copper" />
         {title}
       </Heading>
-      <dl className="mt-4 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+      <dl className="divide-y divide-line">
         {specs.map((spec) => (
-          <div key={spec.label} className="flex gap-3">
-            <span
-              aria-hidden
-              className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-copper"
-            />
-            <div className="text-sm leading-snug">
-              <dt className="inline font-semibold text-ink">{spec.label}: </dt>
-              <dd className="inline text-body">{spec.value}</dd>
-            </div>
+          <div
+            key={spec.label}
+            className="grid gap-0.5 px-5 py-3 sm:grid-cols-[8.5rem_1fr] sm:gap-4"
+          >
+            <dt className="text-xs font-semibold tracking-[0.1em] text-muted uppercase sm:pt-0.5">
+              {spec.label}
+            </dt>
+            <dd className="text-[15px] leading-snug text-ink">{spec.value}</dd>
           </div>
         ))}
       </dl>

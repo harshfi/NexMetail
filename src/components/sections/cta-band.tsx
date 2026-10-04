@@ -27,7 +27,7 @@ export function CtaBand({
             <div className="xl:col-span-7">
               <h2
                 id="cta-title"
-                className="font-display-tight text-5xl text-white sm:text-6xl"
+                className="font-display-tight text-[2.25rem] text-white sm:text-5xl"
               >
                 {title}
               </h2>

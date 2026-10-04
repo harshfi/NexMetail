@@ -32,7 +32,8 @@ export function renderOgImage({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "64px 72px",
-        background: "radial-gradient(circle at 85% 10%, #4a3020 0%, #13213a 30%, #0a1322 60%)",
+        background:
+          "radial-gradient(circle at 85% 10%, #4a3020 0%, #13213a 30%, #0a1322 60%)",
         color: "#ffffff",
         fontFamily: "sans-serif",
       }}

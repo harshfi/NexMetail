@@ -74,7 +74,7 @@ function MobileMenuContent() {
           >
             <Link
               href={item.href}
-              className="block py-4 font-display-tight text-4xl text-white hover:text-copper-light"
+              className="block py-4 font-display-tight text-3xl text-white hover:text-copper-light"
             >
               {item.label}
             </Link>

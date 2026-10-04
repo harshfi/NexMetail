@@ -96,7 +96,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
             </div>
             <div className="animate-rise [animation-delay:150ms] lg:col-span-7">
               <Chip tone="dark">{product.eyebrow}</Chip>
-              <h1 className="mt-5 font-display-tight text-5xl text-white sm:text-7xl">
+              <h1 className="mt-5 font-display-tight text-[2.5rem] text-white sm:text-6xl">
                 {product.name}
               </h1>
               <p className="mt-2 text-sm font-semibold tracking-[0.08em] text-copper-light uppercase">
@@ -170,7 +170,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
               </ul>
             </div>
             <div className="rounded-[var(--radius-card)] bg-night p-6 text-white/75">
-              <h2 className="font-display-tight text-3xl text-white">
+              <h2 className="font-display-tight text-2xl text-white">
                 Get today&apos;s price
               </h2>
               <p className="mt-2 text-sm">

@@ -57,7 +57,7 @@ export function PageHero({
             {eyebrow}
           </Chip>
         )}
-        <h1 className="max-w-4xl animate-rise font-display-tight text-5xl text-white [animation-delay:120ms] sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-4xl animate-rise font-display-tight text-[2.5rem] text-white [animation-delay:120ms] sm:text-6xl lg:text-[4.25rem]">
           {title}
         </h1>
         {lead && (

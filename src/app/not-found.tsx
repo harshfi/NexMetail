@@ -29,7 +29,7 @@ export default function NotFound() {
       </PageHero>
       <section className="py-16">
         <div className="container-page">
-          <h2 className="font-display-tight text-3xl">Our products</h2>
+          <h2 className="font-display-tight text-2xl">Our products</h2>
           <ul className="mt-6 flex flex-wrap gap-3">
             {products.map((p) => (
               <li key={p.slug}>

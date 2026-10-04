@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, DM_Sans } from "next/font/google";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { JsonLd } from "@/components/json-ld";
@@ -12,10 +12,9 @@ import { organizationJsonLd } from "@/lib/jsonld";
 
 import "./globals.css";
 
-const bebas = Bebas_Neue({
-  weight: "400",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -63,7 +62,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${bebas.variable} ${dmSans.variable}`}>
+    <html lang="en-IN" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"

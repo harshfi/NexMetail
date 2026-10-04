@@ -8,7 +8,7 @@ Marketing site for **NexMetal Recycling Private Limited** (B2B copper scrap supp
 
 - Next.js (App Router, RSC by default), TypeScript strict
 - Tailwind CSS v4 — tokens via `@theme` in `src/app/globals.css`
-- `next/font` (Bebas Neue display, Oswald fallback; DM Sans body), `next/image` for every image
+- `next/font` (Space Grotesk display; DM Sans body), `next/image` for every image
 - `motion` for animation (small client components only, honour reduced motion)
 - `lucide-react` icons, `embla-carousel-react` product carousels
 - `react-hook-form` + `zod` enquiry form → Server Action → Resend (`RESEND_API_KEY`, `ENQUIRY_TO_EMAIL`, `ENQUIRY_FROM_EMAIL`)
@@ -35,10 +35,12 @@ Palette: midnight navy + cool steel neutrals with a copper accent (changed from 
 | `--color-night-2`     | `#111D31` | dark surfaces         |
 
 - Copper gradient: `linear-gradient(135deg, #E0A36A 0%, #B5763F 45%, #7A4A22 100%)`
-- Radius: 14px cards, 10px buttons, 999px pills. Shadow: `0 10px 30px -12px rgb(0 0 0 / .15)`
-- Display type: Bebas Neue, uppercase, tight tracking (H1/H2, product names). Body: DM Sans 16–18px / 1.6.
-- Eyebrow chip: DM Sans 12–13px semibold uppercase, tracking .08em, copper-dark on copper-soft, 1px copper border @ 40%.
-- Product row: image card (white frame, 24px pad, carousel dots bottom-centre) + content (chip → name → 2-line desc → "PRODUCT SPECIFICATIONS" card with 2-col copper-dot grid → "ENQUIRE NOW →"). Alternate sides on desktop; image first on mobile.
+- Radius: 14–22px cards, pill buttons. Shadow: `0 10px 30px -12px rgb(0 0 0 / .15)`
+- Display type: Space Grotesk, semibold, sentence case, tight tracking (-0.035em) via `font-display-tight`. Body: DM Sans 16–18px / 1.6.
+- Eyebrow label (`Chip`): short copper rule + small spaced caps (no box), e.g. "— COPPER · NON-FERROUS".
+- Buttons: pill-shaped (`rounded-full`), normal case.
+- Product row: edge-to-edge rounded photo with "01 / 05" index badge + content (eyebrow → name → description → specifications table (label | value rows) → "Enquire now →"). Alternate sides on desktop; image first on mobile.
+- Home hero: headline + "Grades we supply" glass panel (thumbnail, name, purity tag per product).
 - Motion: subtle — fade/slide-up once, hover lift, arrow nudge, slow hero ken-burns, stat count-up. No parallax / scroll-jacking.
 - Mobile-first; check 360 / 768 / 1024 / 1440. Mobile sticky bottom bar: Call + WhatsApp.
 

@@ -8,7 +8,7 @@ type Variant = "primary" | "outline" | "outline-light" | "light";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "group/btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] font-semibold uppercase tracking-[0.06em] transition-[background-color,color,border-color,box-shadow,transform] duration-200 disabled:pointer-events-none disabled:opacity-60";
+  "group/btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold tracking-[-0.005em] transition-[background-color,color,border-color,box-shadow,transform] duration-200 disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   // Diagonal shine sweeps across on hover.
@@ -22,9 +22,9 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-10 px-4 text-xs",
-  md: "h-12 px-5 text-[13px]",
-  lg: "h-14 px-7 text-sm",
+  sm: "h-10 px-5 text-sm",
+  md: "h-12 px-6 text-[15px]",
+  lg: "h-14 px-8 text-base",
 };
 
 type StyleProps = {

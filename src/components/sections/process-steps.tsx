@@ -63,7 +63,7 @@ export function ProcessSteps({
                 <Icon name={step.icon} className="size-5" />
               </span>
               <span
-                className="font-display text-4xl text-white/15 transition-colors duration-300 group-hover:text-copper-light/60 max-sm:hidden"
+                className="font-display text-3xl font-semibold text-white/15 transition-colors duration-300 group-hover:text-copper-light/60 max-sm:hidden"
                 aria-hidden
               >
                 {String(i + 1).padStart(2, "0")}
@@ -73,7 +73,7 @@ export function ProcessSteps({
               <span className="sr-only">Step {i + 1}: </span>
               <span
                 aria-hidden
-                className="mr-2 font-display text-lg text-copper-light sm:hidden"
+                className="mr-2 font-display text-base font-semibold text-copper-light sm:hidden"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>

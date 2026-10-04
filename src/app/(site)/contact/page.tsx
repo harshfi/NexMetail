@@ -48,7 +48,9 @@ export default function ContactPage() {
       >
         <Container className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="flex flex-col gap-4 lg:col-span-5">
-            <h2 className="font-display-tight text-4xl">Talk to our sales desk</h2>
+            <h2 className="font-display-tight text-2xl sm:text-3xl">
+              Talk to our sales desk
+            </h2>
             <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
               <ContactItem icon={<Phone className="size-5" />} label="Call">
                 <a
@@ -107,7 +109,7 @@ export default function ContactPage() {
             className="order-first scroll-mt-28 lg:order-none lg:col-span-7"
           >
             <div className="rounded-[var(--radius-card)] border border-line/70 bg-surface p-5 shadow-soft sm:p-10">
-              <h2 className="font-display-tight text-4xl">Send an enquiry</h2>
+              <h2 className="font-display-tight text-2xl sm:text-3xl">Send an enquiry</h2>
               <p className="mt-2 mb-8 text-[15px]">
                 Fields marked <span className="text-copper-dark">*</span> are required.
               </p>

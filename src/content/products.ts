@@ -27,7 +27,7 @@ export type Product = {
   faqs: ProductFaq[];
 };
 
-const EYEBROW = "Copper | Non-Ferrous";
+const EYEBROW = "Copper · Non-ferrous";
 
 function productImages(slug: string, alts: string[]): ProductImage[] {
   return alts.map((alt, i) => ({ src: `/images/products/${slug}/${i + 1}.jpg`, alt }));

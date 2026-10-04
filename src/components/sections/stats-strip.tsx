@@ -30,7 +30,7 @@ export function StatsStrip() {
               <dt className="text-xs font-semibold tracking-[0.08em] text-muted uppercase sm:text-sm">
                 {s.label}
               </dt>
-              <dd className="order-first mb-2 font-display-tight text-5xl text-ink sm:text-6xl">
+              <dd className="order-first mb-2 font-display-tight text-4xl text-ink sm:text-5xl">
                 <CountUp
                   to={s.value}
                   from={s.from ?? 0}

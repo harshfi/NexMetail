@@ -22,7 +22,7 @@ export default function Error({
         <p className="text-sm font-semibold tracking-[0.08em] text-copper-light uppercase">
           Something went wrong
         </p>
-        <h1 className="mt-4 font-display-tight text-5xl text-white sm:text-7xl">
+        <h1 className="mt-4 font-display-tight text-[2.5rem] text-white sm:text-6xl">
           We hit a snag loading this page
         </h1>
         <p className="mt-5 max-w-xl">

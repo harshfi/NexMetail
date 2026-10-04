@@ -15,6 +15,8 @@ Answers from the owner after the brief (2026-10-04). Reference screenshots: [ref
 
 - Palette: switched from the brief's warm off-white/brown-black to midnight navy (`#0A1322`) and cool steel neutrals (`#F3F5F8` background), keeping copper as the accent, so the site is visually distinct from glorax.in. Every text/background pair is checked for WCAG AA.
 
+- Visual identity (2026-10-04, to look distinct from glorax.in): Space Grotesk sentence-case headings replace condensed uppercase Bebas Neue; pill buttons; copper-rule eyebrow labels instead of boxed chips; hero "Grades we supply" panel instead of a photo mosaic; product rows use edge-to-edge numbered photos and a label/value specifications table instead of a white frame and dot-bullet grid.
+
 ## Product catalogue (owner-supplied, confirmed correct)
 
 | #   | Name                    | Description                                                                                                                         | Specs                                                                                                                                                                                                                           |

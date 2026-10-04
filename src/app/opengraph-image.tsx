@@ -6,7 +6,7 @@ export const contentType = ogContentType;
 
 export default function Image() {
   return renderOgImage({
-    eyebrow: "Copper | Non-Ferrous Scrap",
+    eyebrow: "Copper · Non-ferrous scrap",
     title: "Graded copper scrap, dispatched fast from Kundli",
     subtitle: "Patti · Rassa · Tally · AC Pipe · Dori — GST invoice on every load",
   });

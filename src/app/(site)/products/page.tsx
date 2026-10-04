@@ -48,7 +48,13 @@ export default function ProductsPage() {
           {products.map((product, i) => (
             <div key={product.slug} className="flex flex-col gap-16 lg:gap-24">
               {i > 0 && <hr className="border-line" />}
-              <ProductRow product={product} reverse={i % 2 === 1} priority={i === 0} />
+              <ProductRow
+                product={product}
+                index={i}
+                total={products.length}
+                reverse={i % 2 === 1}
+                priority={i === 0}
+              />
             </div>
           ))}
         </Container>

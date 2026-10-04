@@ -18,6 +18,7 @@ export function ProductMedia({
   className,
   aspect = "aspect-[4/3]",
   single = false,
+  badge,
 }: {
   product: Product;
   sizes: string;
@@ -26,6 +27,8 @@ export function ProductMedia({
   aspect?: string;
   /** Show only the first photo — required inside links, where carousel buttons would nest. */
   single?: boolean;
+  /** Optional overlay label, e.g. "01". */
+  badge?: string;
 }) {
   const all = availableImages(product.images);
   const images = single ? all.slice(0, 1) : all;
@@ -33,11 +36,11 @@ export function ProductMedia({
   return (
     <div
       className={cn(
-        "group/media rounded-[var(--radius-card)] border border-line/70 bg-surface p-4 shadow-soft sm:p-6",
+        "group/media relative overflow-hidden rounded-[20px] bg-night-2 shadow-soft ring-1 ring-black/5",
         className,
       )}
     >
-      <div className={cn("relative overflow-hidden rounded-[10px] bg-night-2", aspect)}>
+      <div className={cn("relative overflow-hidden", aspect)}>
         {images.length === 0 ? (
           <CopperPlaceholder label={product.name} />
         ) : images.length === 1 ? (
@@ -56,6 +59,20 @@ export function ProductMedia({
             sizes={sizes}
             priority={priority}
           />
+        )}
+        {badge && (
+          <>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/45 to-transparent"
+            />
+            <span
+              aria-hidden
+              className="absolute top-4 left-4 font-display text-sm font-semibold tracking-[0.08em] text-white/90 tabular-nums"
+            >
+              {badge}
+            </span>
+          </>
         )}
       </div>
     </div>

@@ -1,13 +1,19 @@
 import Image from "next/image";
-import { BadgeCheck, MapPin, MessageCircle, ReceiptText } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  MapPin,
+  MessageCircle,
+  ReceiptText,
+} from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Container } from "@/components/ui/container";
 import { siteConfig, whatsappLink } from "@/config/site";
-import { products } from "@/content/products";
+import { products, type Product } from "@/content/products";
 import { availableImages } from "@/lib/images";
-import { cn } from "@/lib/utils";
 
 import { CopperStrands } from "./copper-strands";
 
@@ -21,11 +27,11 @@ const trustPoints = [
 ];
 
 export function HomeHero() {
-  // Up to four real product photos for the mosaic.
-  const tiles = products
-    .map((p) => ({ product: p, image: availableImages(p.images)[0] }))
-    .filter((t) => t.image)
-    .slice(0, 4);
+  const grades = products.map((p) => ({
+    product: p,
+    image: availableImages(p.images)[0],
+    purity: purityLabel(p),
+  }));
 
   return (
     <section className="relative isolate overflow-hidden bg-night pt-32 pb-16 text-white/75 sm:pt-40 lg:pt-44 lg:pb-28">
@@ -38,11 +44,11 @@ export function HomeHero() {
       <Container className="grid items-center gap-14 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <div className="animate-rise">
-            <Chip tone="dark">Copper | Non-Ferrous Scrap</Chip>
+            <Chip tone="dark">Copper · Non-ferrous scrap</Chip>
           </div>
           <h1
             style={{ animationDelay: "90ms" }}
-            className="mt-6 animate-rise font-display-tight text-[3.4rem] text-white sm:text-7xl lg:text-[5.75rem]"
+            className="mt-6 animate-rise font-display-tight text-[2.6rem] text-white sm:text-6xl lg:text-[4.4rem]"
           >
             Graded <span className="text-copper-gradient">copper scrap</span>, dispatched
             fast from Kundli
@@ -86,39 +92,81 @@ export function HomeHero() {
           </ul>
         </div>
 
-        {tiles.length > 0 && (
-          <div className="lg:col-span-5">
-            <ul className="grid grid-cols-4 gap-2 sm:gap-4 lg:grid-cols-2">
-              {tiles.map(({ product, image }, i) => (
+        <div
+          style={{ animationDelay: "250ms" }}
+          className="animate-tile lg:col-span-5 lg:col-start-8"
+        >
+          <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-2 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.6)] backdrop-blur-md">
+            <div className="flex items-center justify-between px-4 pt-3 pb-4">
+              <p className="text-sm font-semibold text-white">Grades we supply</p>
+              <span className="flex items-center gap-2 text-xs text-white/60">
+                <span className="relative flex size-2">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-copper-light/60" />
+                  <span className="relative size-2 rounded-full bg-copper-light" />
+                </span>
+                Dispatch from Kundli
+              </span>
+            </div>
+            <ul className="flex flex-col gap-1">
+              {grades.map(({ product, image, purity }, i) => (
                 <li
                   key={product.slug}
-                  style={{ animationDelay: `${250 + i * 120}ms` }}
-                  className={cn("animate-tile", i % 2 === 1 && "lg:translate-y-10")}
+                  style={{ animationDelay: `${400 + i * 90}ms` }}
+                  className="animate-rise-sm"
                 >
-                  <figure
-                    style={{ animationDelay: `${i * -1.7}s` }}
-                    className="group/tile animate-float rounded-[10px] bg-white/5 p-1 ring-1 ring-white/10 backdrop-blur-sm transition-colors duration-300 hover:ring-copper-light/50 sm:rounded-[var(--radius-card)] sm:p-2"
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="group/row flex items-center gap-4 rounded-2xl px-3 py-2.5 transition-colors hover:bg-white/[0.06]"
                   >
-                    <div className="relative aspect-[3/4] overflow-hidden rounded-[7px] sm:rounded-[10px] lg:aspect-[4/5]">
-                      <Image
-                        src={image!.src}
-                        alt={image!.alt}
-                        fill
-                        priority={i < 2}
-                        sizes="(min-width: 1024px) 220px, 25vw"
-                        className="object-cover transition-transform duration-700 group-hover/tile:scale-110"
-                      />
-                    </div>
-                    <figcaption className="px-1 pt-1.5 pb-0.5 text-[10px] font-semibold tracking-[0.08em] text-white/85 uppercase sm:px-1.5 sm:pt-2 sm:pb-1 sm:text-xs">
-                      {product.localName}
-                    </figcaption>
-                  </figure>
+                    <span className="relative size-12 shrink-0 overflow-hidden rounded-xl bg-copper-gradient ring-1 ring-white/10">
+                      {image && (
+                        <Image
+                          src={image.src}
+                          alt=""
+                          fill
+                          sizes="48px"
+                          priority={i < 2}
+                          className="object-cover transition-transform duration-500 group-hover/row:scale-110"
+                        />
+                      )}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-medium text-white">
+                        {product.name}
+                      </span>
+                      <span className="block text-xs text-white/55">
+                        Trade name: {product.localName}
+                      </span>
+                    </span>
+                    <span className="shrink-0 rounded-full border border-copper-light/30 bg-copper/10 px-3 py-1 text-xs font-semibold text-copper-light tabular-nums">
+                      {purity}
+                    </span>
+                    <ArrowUpRight
+                      aria-hidden
+                      className="size-4 shrink-0 text-white/40 transition-transform group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-copper-light max-sm:hidden"
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>
+            <div className="mt-2 flex items-center justify-between gap-4 rounded-2xl bg-night-2/80 px-4 py-3 text-xs text-white/60">
+              <span>Purity as graded per lot · GST invoice on every load</span>
+            </div>
           </div>
-        )}
+        </div>
       </Container>
     </section>
   );
+}
+
+/** Short purity tag for the grades panel, derived from the product's own specs. */
+function purityLabel(product: Product) {
+  const purity = product.specs.find((s) => s.label === "Purity")?.value ?? "";
+  const range = purity.match(/(\d+(?:\.\d+)?)%\s*to\s*(\d+(?:\.\d+)?)%/);
+  if (range) return `${range[1]}–${range[2]}%`;
+  const single = purity.match(/\d+(?:\.\d+)?%/);
+  if (single) return single[0];
+  // No purity listed (e.g. AC pipe): fall back to the grade acronym, e.g. "DHP".
+  const grade = product.specs.find((s) => s.label === "Grade")?.value ?? "";
+  return grade.match(/\(([A-Z]{2,})\)/)?.[1] ?? product.localName;
 }

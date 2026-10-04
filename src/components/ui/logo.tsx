@@ -66,7 +66,7 @@ export function Logo({ className }: { className?: string }) {
       className={cn("inline-flex items-center gap-2.5", className)}
     >
       <LogoMark />
-      <span className="font-display text-[1.7rem] leading-none tracking-[0.06em]">
+      <span className="font-display text-[1.35rem] leading-none font-bold tracking-[0.12em]">
         {siteConfig.wordmark}
       </span>
     </Link>

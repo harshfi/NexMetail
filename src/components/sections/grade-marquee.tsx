@@ -14,7 +14,7 @@ export function GradeMarquee() {
     <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
       {items.map((item) => (
         <li key={item} className="flex items-center">
-          <span className="px-6 font-display text-2xl tracking-[0.06em] whitespace-nowrap text-white/85 uppercase sm:text-3xl">
+          <span className="px-6 font-display text-lg font-medium tracking-[-0.01em] whitespace-nowrap text-white/85 sm:text-2xl">
             {item}
           </span>
           <span aria-hidden className="size-2 rotate-45 bg-copper-light" />

@@ -78,7 +78,7 @@ export function EnquiryForm({ productOptions }: { productOptions: ProductOption[
         <h3
           ref={successRef}
           tabIndex={-1}
-          className="font-display-tight text-4xl focus:outline-none"
+          className="font-display-tight text-3xl focus:outline-none"
         >
           Enquiry received
         </h3>

@@ -30,7 +30,7 @@ export function ProductCard({
       />
       <div className="flex flex-1 flex-col px-1 pt-5">
         <div className="flex items-start justify-between gap-4">
-          <Heading className="font-display-tight text-3xl">{product.name}</Heading>
+          <Heading className="font-display-tight text-2xl">{product.name}</Heading>
           <ArrowUpRight
             aria-hidden
             className="mt-1 size-5 shrink-0 text-copper transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
