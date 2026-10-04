@@ -24,7 +24,7 @@ export function Section({
   return (
     <section
       data-tone={tone}
-      className={cn("py-16 sm:py-20 lg:py-28", tones[tone], className)}
+      className={cn("py-14 sm:py-20 lg:py-28", tones[tone], className)}
       {...props}
     >
       <Container className={containerClassName}>{children}</Container>
@@ -55,7 +55,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-10 flex flex-col gap-6 sm:mb-14",
+        "mb-8 flex flex-col gap-5 sm:mb-14 sm:gap-6",
         align === "center"
           ? "items-center text-center"
           : "md:flex-row md:items-end md:justify-between",

@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { enquirySchema, type EnquiryInput, type ProductOption } from "@/lib/validators";
 
 const fieldClasses =
-  "block w-full rounded-[var(--radius-btn)] border border-line bg-surface px-4 py-3 text-[15px] text-ink placeholder:text-muted/80 transition-colors focus:border-copper focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-copper aria-[invalid=true]:border-red-700";
+  "block w-full rounded-[var(--radius-btn)] border border-line bg-surface px-4 py-3 text-base text-ink sm:text-[15px] placeholder:text-muted/80 transition-colors focus:border-copper focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-copper aria-[invalid=true]:border-red-700";
 
 export function EnquiryForm({ productOptions }: { productOptions: ProductOption[] }) {
   const [pending, startTransition] = useTransition();

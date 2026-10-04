@@ -23,8 +23,8 @@ export function Footer() {
   return (
     <footer className="bg-night pb-20 text-white/70 md:pb-0">
       <div aria-hidden className="h-1 bg-copper-gradient" />
-      <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
-        <div className="lg:col-span-4">
+      <Container className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:gap-12 sm:py-16 lg:grid-cols-12 lg:py-20">
+        <div className="col-span-2 lg:col-span-4">
           <Logo className="text-white" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
             {siteConfig.tagline} Sorted, graded copper scrap for wire-drawing units,
@@ -68,7 +68,7 @@ export function Footer() {
           ))}
         </FooterColumn>
 
-        <FooterColumn title="Contact" className="lg:col-span-4">
+        <FooterColumn title="Contact" className="col-span-2 lg:col-span-4">
           <li className="flex gap-3">
             <MapPin aria-hidden className="mt-0.5 size-4 shrink-0 text-copper-light" />
             <address className="not-italic">

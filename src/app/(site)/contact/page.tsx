@@ -49,7 +49,7 @@ export default function ContactPage() {
         <Container className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="flex flex-col gap-4 lg:col-span-5">
             <h2 className="font-display-tight text-4xl">Talk to our sales desk</h2>
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
               <ContactItem icon={<Phone className="size-5" />} label="Call">
                 <a
                   href={telLink()}
@@ -102,8 +102,11 @@ export default function ContactPage() {
             </ul>
           </div>
 
-          <div id="enquiry" className="scroll-mt-28 lg:col-span-7">
-            <div className="rounded-[var(--radius-card)] border border-line/70 bg-surface p-6 shadow-soft sm:p-10">
+          <div
+            id="enquiry"
+            className="order-first scroll-mt-28 lg:order-none lg:col-span-7"
+          >
+            <div className="rounded-[var(--radius-card)] border border-line/70 bg-surface p-5 shadow-soft sm:p-10">
               <h2 className="font-display-tight text-4xl">Send an enquiry</h2>
               <p className="mt-2 mb-8 text-[15px]">
                 Fields marked <span className="text-copper-dark">*</span> are required.
@@ -148,10 +151,10 @@ function ContactItem({
   children: ReactNode;
 }) {
   return (
-    <li className="flex gap-4 rounded-[var(--radius-card)] border border-line bg-surface p-5">
+    <li className="flex gap-4 rounded-[var(--radius-card)] border border-line bg-surface p-4 sm:p-5">
       <span
         aria-hidden
-        className="grid size-11 shrink-0 place-items-center rounded-full bg-copper-soft text-copper-dark"
+        className="grid size-10 shrink-0 place-items-center rounded-full bg-copper-soft text-copper-dark sm:size-11"
       >
         {icon}
       </span>

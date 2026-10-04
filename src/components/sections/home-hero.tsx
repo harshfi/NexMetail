@@ -88,31 +88,28 @@ export function HomeHero() {
 
         {tiles.length > 0 && (
           <div className="lg:col-span-5">
-            <ul className="grid grid-cols-2 gap-3 sm:gap-4">
+            <ul className="grid grid-cols-4 gap-2 sm:gap-4 lg:grid-cols-2">
               {tiles.map(({ product, image }, i) => (
                 <li
                   key={product.slug}
                   style={{ animationDelay: `${250 + i * 120}ms` }}
-                  className={cn(
-                    "animate-tile",
-                    i % 2 === 1 && "translate-y-6 sm:translate-y-10",
-                  )}
+                  className={cn("animate-tile", i % 2 === 1 && "lg:translate-y-10")}
                 >
                   <figure
                     style={{ animationDelay: `${i * -1.7}s` }}
-                    className="group/tile animate-float rounded-[var(--radius-card)] bg-white/5 p-2 ring-1 ring-white/10 backdrop-blur-sm transition-colors duration-300 hover:ring-copper-light/50"
+                    className="group/tile animate-float rounded-[10px] bg-white/5 p-1 ring-1 ring-white/10 backdrop-blur-sm transition-colors duration-300 hover:ring-copper-light/50 sm:rounded-[var(--radius-card)] sm:p-2"
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-[10px]">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-[7px] sm:rounded-[10px] lg:aspect-[4/5]">
                       <Image
                         src={image!.src}
                         alt={image!.alt}
                         fill
                         priority={i < 2}
-                        sizes="(min-width: 1024px) 220px, 45vw"
+                        sizes="(min-width: 1024px) 220px, 25vw"
                         className="object-cover transition-transform duration-700 group-hover/tile:scale-110"
                       />
                     </div>
-                    <figcaption className="px-1.5 pt-2 pb-1 text-xs font-semibold tracking-[0.08em] text-white/85 uppercase">
+                    <figcaption className="px-1 pt-1.5 pb-0.5 text-[10px] font-semibold tracking-[0.08em] text-white/85 uppercase sm:px-1.5 sm:pt-2 sm:pb-1 sm:text-xs">
                       {product.localName}
                     </figcaption>
                   </figure>

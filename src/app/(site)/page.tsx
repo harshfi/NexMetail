@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
 import { JsonLd } from "@/components/json-ld";
-import { Reveal } from "@/components/motion/reveal";
-import { ProductCard } from "@/components/product/product-card";
+import { ProductCardGrid } from "@/components/product/product-card-grid";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqList } from "@/components/sections/faq-list";
 import { GradeMarquee } from "@/components/sections/grade-marquee";
@@ -57,13 +56,7 @@ export default function HomePage() {
             </ButtonLink>
           }
         />
-        <ul className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, i) => (
-            <Reveal as="li" key={product.slug} delay={(i % 3) * 0.06}>
-              <ProductCard product={product} />
-            </Reveal>
-          ))}
-        </ul>
+        <ProductCardGrid products={products} label="Copper scrap grades" />
       </Section>
 
       <WhyUsGrid />

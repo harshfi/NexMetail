@@ -15,7 +15,7 @@ export function organizationJsonLd() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: absoluteUrl("/"),
-    logo: absoluteUrl("/icon"),
+    logo: absoluteUrl("/icons/icon-512.png"),
     image: absoluteUrl("/opengraph-image"),
     description: siteConfig.description,
     telephone: contact.phone,

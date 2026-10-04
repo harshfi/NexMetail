@@ -56,24 +56,30 @@ export function ProcessSteps({
             as="li"
             key={step.id}
             delay={i * 0.06}
-            className="group relative rounded-[var(--radius-card)] border border-night-line bg-night-2 p-6 transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-copper/50 motion-reduce:hover:translate-y-0"
+            className="group relative rounded-[var(--radius-card)] border border-night-line bg-night-2 p-6 transition-[border-color,translate] duration-300 hover:-translate-y-1 hover:border-copper/50 motion-reduce:hover:translate-y-0 max-sm:grid max-sm:grid-cols-[2.75rem_1fr] max-sm:gap-x-4 max-sm:p-5"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between max-sm:row-span-2 max-sm:items-start">
               <span className="grid size-11 place-items-center rounded-[10px] bg-copper-gradient text-white transition-transform duration-300 group-hover:-rotate-6">
                 <Icon name={step.icon} className="size-5" />
               </span>
               <span
-                className="font-display text-4xl text-white/15 transition-colors duration-300 group-hover:text-copper-light/60"
+                className="font-display text-4xl text-white/15 transition-colors duration-300 group-hover:text-copper-light/60 max-sm:hidden"
                 aria-hidden
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
-            <StepHeading className="mt-6 text-base font-semibold text-white">
+            <StepHeading className="text-base font-semibold text-white sm:mt-6">
               <span className="sr-only">Step {i + 1}: </span>
+              <span
+                aria-hidden
+                className="mr-2 font-display text-lg text-copper-light sm:hidden"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
               {step.title}
             </StepHeading>
-            <p className="mt-2 text-sm text-white/65">{step.summary}</p>
+            <p className="mt-1 text-sm text-white/65 sm:mt-2">{step.summary}</p>
           </Reveal>
         ))}
       </ol>

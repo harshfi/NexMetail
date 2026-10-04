@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Check, MessageCircle, Phone } from "lucide-react";
 
 import { JsonLd } from "@/components/json-ld";
-import { ProductCard } from "@/components/product/product-card";
+import { ProductCardGrid } from "@/components/product/product-card-grid";
 import { ProductMedia } from "@/components/product/product-media";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqList } from "@/components/sections/faq-list";
@@ -213,13 +213,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
           eyebrow="More grades"
           title="Other copper scrap we supply"
         />
-        <ul className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-          {related.map((p) => (
-            <li key={p.slug}>
-              <ProductCard product={p} />
-            </li>
-          ))}
-        </ul>
+        <ProductCardGrid products={related} label="Other copper scrap grades" />
       </Section>
 
       <CtaBand />

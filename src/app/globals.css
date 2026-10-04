@@ -143,6 +143,8 @@
    ------------------------------------------------------------------ */
 @layer base {
   html {
+    /* Clip at the root too: mobile browsers widen the layout viewport for overflowing content. */
+    overflow-x: clip;
     -webkit-text-size-adjust: 100%;
     scroll-padding-top: 6rem;
   }

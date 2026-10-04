@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 
 const offsets = {
   up: { x: 0, y: 24 },
-  left: { x: -48, y: 0 },
-  right: { x: 48, y: 0 },
+  left: { x: -32, y: 0 },
+  right: { x: 32, y: 0 },
 };
 
 /** Fades and slides children in once when they scroll into view. */

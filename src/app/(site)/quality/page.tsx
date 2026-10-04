@@ -22,6 +22,12 @@ export const metadata: Metadata = pageMetadata({
 const spec = (slug: string, label: string) =>
   products.find((p) => p.slug === slug)?.specs.find((s) => s.label === label)?.value;
 
+const formOf = (slug: string) =>
+  spec(slug, "Format") ??
+  spec(slug, "Form") ??
+  spec(slug, "Thickness") ??
+  spec(slug, "Condition");
+
 // Only checks backed by the product specs — see products.ts.
 const dispatchChecks = [
   "Grade and purity band match what is on your quote",
@@ -51,11 +57,41 @@ export default function QualityPage() {
           title="Grades at a glance"
           lead="The grade, purity band and form for each product we supply."
         />
+        {/* Phones: one card per product. */}
+        <ul className="grid gap-3 sm:hidden">
+          {products.map((p) => (
+            <li
+              key={p.slug}
+              className="rounded-[var(--radius-card)] border border-line bg-surface p-5 shadow-soft"
+            >
+              <h3 className="font-semibold text-ink">
+                <Link href={`/products/${p.slug}`} className="hover:text-copper-dark">
+                  {p.name}
+                </Link>
+              </h3>
+              <dl className="mt-3 grid gap-2 text-sm">
+                {(
+                  [
+                    ["Grade", spec(p.slug, "Grade")],
+                    ["Purity", spec(p.slug, "Purity")],
+                    ["Form", formOf(p.slug)],
+                  ] as const
+                ).map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-[4.5rem_1fr] gap-2">
+                    <dt className="text-muted">{label}</dt>
+                    <dd className="text-ink">{value ?? "—"}</dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ul>
+        {/* Tablet and up: comparison table. */}
         <div
           role="region"
           aria-labelledby="grades-title"
           tabIndex={0}
-          className="overflow-x-auto rounded-[var(--radius-card)] border border-line bg-surface shadow-soft"
+          className="hidden overflow-x-auto rounded-[var(--radius-card)] border border-line bg-surface shadow-soft sm:block"
         >
           <table className="w-full min-w-[640px] text-left text-sm">
             <caption className="sr-only">
@@ -87,13 +123,7 @@ export default function QualityPage() {
                   </th>
                   <td className="px-5 py-4">{spec(p.slug, "Grade") ?? "—"}</td>
                   <td className="px-5 py-4">{spec(p.slug, "Purity") ?? "—"}</td>
-                  <td className="px-5 py-4">
-                    {spec(p.slug, "Format") ??
-                      spec(p.slug, "Form") ??
-                      spec(p.slug, "Thickness") ??
-                      spec(p.slug, "Condition") ??
-                      "—"}
-                  </td>
+                  <td className="px-5 py-4">{formOf(p.slug) ?? "—"}</td>
                 </tr>
               ))}
             </tbody>

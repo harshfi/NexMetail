@@ -43,7 +43,7 @@ export default function ProductsPage() {
         </nav>
       </PageHero>
 
-      <section aria-label="Products" className="py-16 sm:py-20 lg:py-24">
+      <section aria-label="Products" className="overflow-x-clip py-14 sm:py-20 lg:py-24">
         <Container className="flex flex-col gap-16 lg:gap-24">
           {products.map((product, i) => (
             <div key={product.slug} className="flex flex-col gap-16 lg:gap-24">
