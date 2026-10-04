@@ -1,6 +1,14 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
 import { ImageResponse } from "next/og";
 
 import { siteConfig } from "@/config/site";
+
+// Same mark as the favicon.
+const markDataUri = `data:image/svg+xml;base64,${readFileSync(
+  path.join(process.cwd(), "src/app/icon.svg"),
+).toString("base64")}`;
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
@@ -30,24 +38,8 @@ export function renderOgImage({
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-        <svg width="56" height="56" viewBox="0 0 40 40">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#E0A36A" />
-              <stop offset="0.45" stopColor="#B5763F" />
-              <stop offset="1" stopColor="#7A4A22" />
-            </linearGradient>
-          </defs>
-          <rect width="40" height="40" rx="10" fill="url(#g)" />
-          <path
-            d="M12 29V11l16 18V11"
-            fill="none"
-            stroke="white"
-            strokeWidth="3.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse needs a plain img */}
+        <img src={markDataUri} width={56} height={56} alt="" />
         <span style={{ fontSize: 34, fontWeight: 800, letterSpacing: 6 }}>
           {siteConfig.wordmark}
         </span>

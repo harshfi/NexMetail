@@ -3,25 +3,54 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-/** Copper mark: three stacked strands forming an "N". Original, owner can replace with a real logo. */
+/** Copper "N" mark — same artwork as the favicon (src/app/icon.svg). Owner can replace with a real logo. */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" aria-hidden className={cn("size-9", className)}>
+    <svg viewBox="0 0 64 64" aria-hidden className={cn("size-9", className)}>
       <defs>
-        <linearGradient id="nx-copper" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E0A36A" />
-          <stop offset="0.45" stopColor="#B5763F" />
-          <stop offset="1" stopColor="#7A4A22" />
+        <radialGradient id="nx-bg" cx="28%" cy="18%" r="95%">
+          <stop offset="0" stopColor="#43291a" />
+          <stop offset="0.55" stopColor="#1b1512" />
+          <stop offset="1" stopColor="#0d0b0a" />
+        </radialGradient>
+        <linearGradient id="nx-cu" x1="0.1" y1="0" x2="0.9" y2="1">
+          <stop offset="0" stopColor="#FFE0BC" />
+          <stop offset="0.3" stopColor="#F0B47A" />
+          <stop offset="0.65" stopColor="#C98449" />
+          <stop offset="1" stopColor="#8F5A2C" />
+        </linearGradient>
+        <linearGradient id="nx-rim" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#F0B47A" />
+          <stop offset="0.5" stopColor="#B5763F" stopOpacity="0.7" />
+          <stop offset="1" stopColor="#7A4A22" stopOpacity="0.5" />
         </linearGradient>
       </defs>
-      <rect width="40" height="40" rx="10" fill="url(#nx-copper)" />
-      <path
-        d="M12 29V11l16 18V11"
+      <rect width="64" height="64" rx="15" fill="url(#nx-bg)" />
+      <rect
+        x="1.25"
+        y="1.25"
+        width="61.5"
+        height="61.5"
+        rx="13.75"
         fill="none"
-        stroke="white"
-        strokeWidth="3.4"
+        stroke="url(#nx-rim)"
+        strokeWidth="2.5"
+      />
+      <path
+        d="M18.5 46.5v-29l27 29v-29"
+        fill="none"
+        stroke="url(#nx-cu)"
+        strokeWidth="9.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+      <path
+        d="M21.5 21.8l21 22.4"
+        fill="none"
+        stroke="#FFF4E6"
+        strokeOpacity="0.6"
+        strokeWidth="1.6"
+        strokeLinecap="round"
       />
     </svg>
   );
