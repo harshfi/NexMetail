@@ -13,6 +13,8 @@ Answers from the owner after the brief (2026-10-04). Reference screenshots: [ref
 - Inner pages: dark page-title band, so the header still reads well where there's no hero.
 - Privacy policy and terms: Claude drafts these (Indian B2B context), marked "for legal review".
 
+- Palette: switched from the brief's warm off-white/brown-black to midnight navy (`#0A1322`) and cool steel neutrals (`#F3F5F8` background), keeping copper as the accent, so the site is visually distinct from glorax.in. Every text/background pair is checked for WCAG AA.
+
 ## Product catalogue (owner-supplied, confirmed correct)
 
 | #   | Name                    | Description                                                                                                                         | Specs                                                                                                                                                                                                                           |

@@ -9,9 +9,9 @@ export function LogoMark({ className }: { className?: string }) {
     <svg viewBox="0 0 64 64" aria-hidden className={cn("size-9", className)}>
       <defs>
         <radialGradient id="nx-bg" cx="28%" cy="18%" r="95%">
-          <stop offset="0" stopColor="#43291a" />
-          <stop offset="0.55" stopColor="#1b1512" />
-          <stop offset="1" stopColor="#0d0b0a" />
+          <stop offset="0" stopColor="#1f3150" />
+          <stop offset="0.55" stopColor="#0f1b2e" />
+          <stop offset="1" stopColor="#070d18" />
         </radialGradient>
         <linearGradient id="nx-cu" x1="0.1" y1="0" x2="0.9" y2="1">
           <stop offset="0" stopColor="#FFE0BC" />

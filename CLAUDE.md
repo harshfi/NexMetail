@@ -18,19 +18,21 @@ Marketing site for **NexMetal Recycling Private Limited** (B2B copper scrap supp
 
 ## Design tokens
 
+Palette: midnight navy + cool steel neutrals with a copper accent (changed from the brief's warm beige/brown-black on 2026-10-04 so the site looks distinct from glorax.in). `src/app/globals.css` is the source of truth.
+
 | Token                 | Value     | Use                   |
 | --------------------- | --------- | --------------------- |
-| `--color-bg`          | `#F4F1EC` | page background       |
+| `--color-bg`          | `#F3F5F8` | page background       |
 | `--color-surface`     | `#FFFFFF` | cards                 |
-| `--color-ink`         | `#161412` | headings              |
-| `--color-body`        | `#4A4642` | body text             |
-| `--color-muted`       | `#7A746D` | secondary text        |
-| `--color-line`        | `#E7E1D8` | borders/dividers      |
+| `--color-ink`         | `#0D1726` | headings              |
+| `--color-body`        | `#3B4657` | body text             |
+| `--color-muted`       | `#5C6878` | secondary text        |
+| `--color-line`        | `#DDE3EB` | borders/dividers      |
 | `--color-copper`      | `#B5763F` | accent / buttons      |
 | `--color-copper-dark` | `#8F5A2C` | hover, chip text      |
-| `--color-copper-soft` | `#F2E4D6` | chip bg               |
-| `--color-night`       | `#121110` | dark sections, footer |
-| `--color-night-2`     | `#1C1A18` | dark surfaces         |
+| `--color-copper-soft` | `#F7E9DC` | chip bg               |
+| `--color-night`       | `#0A1322` | dark sections, footer |
+| `--color-night-2`     | `#111D31` | dark surfaces         |
 
 - Copper gradient: `linear-gradient(135deg, #E0A36A 0%, #B5763F 45%, #7A4A22 100%)`
 - Radius: 14px cards, 10px buttons, 999px pills. Shadow: `0 10px 30px -12px rgb(0 0 0 / .15)`

@@ -4,22 +4,22 @@
    Design tokens (see CLAUDE.md / docs/DECISIONS.md)
    ------------------------------------------------------------------ */
 @theme {
-  --color-bg: #f4f1ec;
+  --color-bg: #f3f5f8;
   --color-surface: #ffffff;
-  --color-ink: #161412;
-  --color-body: #4a4642;
-  /* Darkened from #7A746D so it passes AA (4.5:1) on --color-bg too. */
-  --color-muted: #6e6862;
-  --color-line: #e7e1d8;
+  --color-ink: #0d1726;
+  --color-body: #3b4657;
+  /* Passes AA (≥4.5:1) on both --color-bg and white. */
+  --color-muted: #5c6878;
+  --color-line: #dde3eb;
   --color-copper: #b5763f;
   --color-copper-dark: #8f5a2c;
   /* Deepest copper — button hover (7.4:1 with white). */
   --color-copper-deep: #7a4a22;
   --color-copper-light: #e0a36a;
-  --color-copper-soft: #f2e4d6;
-  --color-night: #121110;
-  --color-night-2: #1c1a18;
-  --color-night-line: #2e2a26;
+  --color-copper-soft: #f7e9dc;
+  --color-night: #0a1322;
+  --color-night-2: #111d31;
+  --color-night-line: #22314a;
 
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bebas), "Oswald", "Arial Narrow", sans-serif;
@@ -27,8 +27,8 @@
   --radius-card: 14px;
   --radius-btn: 10px;
 
-  --shadow-soft: 0 10px 30px -12px rgb(0 0 0 / 0.15);
-  --shadow-lift: 0 22px 40px -18px rgb(0 0 0 / 0.25);
+  --shadow-soft: 0 10px 30px -12px rgb(10 19 34 / 0.18);
+  --shadow-lift: 0 22px 40px -18px rgb(10 19 34 / 0.3);
 
   --animate-kenburns: kenburns 24s ease-in-out infinite alternate;
   --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;

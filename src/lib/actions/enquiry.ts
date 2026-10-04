@@ -43,7 +43,7 @@ function formatEnquiry(data: EnquiryInput) {
   const html = `<h2 style="font-family:sans-serif">New website enquiry</h2><table style="font-family:sans-serif;border-collapse:collapse">${filled
     .map(
       ([k, v]) =>
-        `<tr><td style="padding:6px 12px 6px 0;color:#6e6862;vertical-align:top">${k}</td><td style="padding:6px 0;white-space:pre-wrap">${escapeHtml(v!)}</td></tr>`,
+        `<tr><td style="padding:6px 12px 6px 0;color:#5c6878;vertical-align:top">${k}</td><td style="padding:6px 0;white-space:pre-wrap">${escapeHtml(v!)}</td></tr>`,
     )
     .join("")}</table>`;
   return { productName, text, html };
