@@ -44,16 +44,29 @@ Marketing site for **NexMetal Recycling Private Limited** (B2B copper scrap supp
 
 ```
 src/
-  app/(site)/       routes (route group); root layout.tsx + globals.css in src/app
-  components/ui/    primitives — Button, Chip, Container, Section, Card, SpecList
-  components/layout/ Header, Footer, MobileNav, StickyContactBar
-  components/sections/ home + shared page sections
-  components/product/  ProductRow, ProductGallery, ProductCard
-  config/site.ts    ALL business facts + nav (TODO placeholders for unknowns)
-  content/          products.ts, faqs.ts, process.ts, industries.ts
-  lib/              utils (cn), seo helpers, jsonld helpers, validators
+  app/              root layout (header/footer/sticky bar), globals.css, not-found, error,
+                    sitemap/robots/manifest, icon/apple-icon, root opengraph-image
+  app/(site)/       routes; each main route has its own opengraph-image.tsx (uses lib/og.tsx)
+  components/ui/    primitives — Button/ButtonLink, Chip, Container, Section/SectionHeading,
+                    Card, SpecList, PageHero (dark title band), Logo, Icon, CopperPlaceholder
+  components/layout/ Header (+ HeaderShell, NavLink, ProductsMenu, MobileNav), Footer, StickyContactBar
+  components/sections/ home + shared page sections (HomeHero, StatsStrip, CtaBand, FaqList…)
+  components/product/  ProductRow, ProductMedia (placeholder → image → carousel), ProductGallery, ProductCard
+  components/motion/   MotionProvider (LazyMotion), Reveal, CountUp — "use client"
+  components/forms/    EnquiryForm — "use client"
+  config/site.ts    ALL business facts + nav + link helpers (telLink, whatsappLink, mapsLink…)
+  content/          products.ts, faqs.ts, process.ts, industries.ts, why-us.ts
+  lib/              utils (cn), seo.ts, jsonld.ts, og.tsx, images.ts (server-only), validators.ts,
+                    actions/enquiry.ts (Server Action → Resend)
 public/images/{brand,products,hero,process}
 ```
+
+Patterns:
+- Every page starts with a dark band (HomeHero or PageHero); the fixed header is transparent over it and turns solid on scroll. New pages must start with a dark band too.
+- Header children style the scrolled state with `group-data-[scrolled=true]:` so they stay server components.
+- Buttons use `copper-dark` (hover `copper-deep`) — plain `copper` fails AA with white text. Use `copper` for icons/decoration only.
+- `Icon` (lucide by name) is server-only; client components import lucide icons directly.
+- Don't import `content/*` into client components (bundle size) — pass data as props.
 
 Scripts: `npm run dev | build | lint | typecheck | format | check:images`. Product images resolve via `src/lib/images.ts` (server-only); missing files render the copper placeholder. Owner unknowns: `// TODO(owner):` comments, collected in `docs/OWNER_TODO.md` — keep both in sync. Env vars documented in `.env.example`.
 

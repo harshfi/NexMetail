@@ -12,12 +12,10 @@ export function publicImageExists(src: string) {
   return existsSync(path.join(publicDir, src.replace(/^\//, "")));
 }
 
-export type ResolvedImage = ProductImage & { available: boolean };
-
 /**
- * Marks which product images exist so components can render the copper
- * placeholder instead of a broken image. Always returns at least one entry.
+ * Product images that actually exist on disk. Components render the copper
+ * placeholder when this is empty, so a missing photo never breaks the build.
  */
-export function resolveImages(images: ProductImage[]): ResolvedImage[] {
-  return images.map((img) => ({ ...img, available: publicImageExists(img.src) }));
+export function availableImages(images: ProductImage[]): ProductImage[] {
+  return images.filter((img) => publicImageExists(img.src));
 }

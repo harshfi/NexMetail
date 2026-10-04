@@ -1,26 +1,181 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ------------------------------------------------------------------
+   Design tokens (see CLAUDE.md / docs/DECISIONS.md)
+   ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #f4f1ec;
+  --color-surface: #ffffff;
+  --color-ink: #161412;
+  --color-body: #4a4642;
+  /* Darkened from #7A746D so it passes AA (4.5:1) on --color-bg too. */
+  --color-muted: #6e6862;
+  --color-line: #e7e1d8;
+  --color-copper: #b5763f;
+  --color-copper-dark: #8f5a2c;
+  /* Deepest copper — button hover (7.4:1 with white). */
+  --color-copper-deep: #7a4a22;
+  --color-copper-light: #e0a36a;
+  --color-copper-soft: #f2e4d6;
+  --color-night: #121110;
+  --color-night-2: #1c1a18;
+  --color-night-line: #2e2a26;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bebas), "Oswald", "Arial Narrow", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --radius-card: 14px;
+  --radius-btn: 10px;
+
+  --shadow-soft: 0 10px 30px -12px rgb(0 0 0 / 0.15);
+  --shadow-lift: 0 22px 40px -18px rgb(0 0 0 / 0.25);
+
+  --animate-kenburns: kenburns 24s ease-in-out infinite alternate;
+
+  @keyframes kenburns {
+    from {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.12) translate3d(-2%, -1.5%, 0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility bg-copper-gradient {
+  background-image: linear-gradient(135deg, #e0a36a 0%, #b5763f 45%, #7a4a22 100%);
+}
+
+@utility text-copper-gradient {
+  background-image: linear-gradient(135deg, #e0a36a 0%, #b5763f 45%, #7a4a22 100%);
+  background-clip: text;
+  color: transparent;
+  /* Bebas glyphs overhang their box; pad so the clip doesn't cut the last letter. */
+  padding-right: 0.08em;
+  margin-right: -0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Lock background scroll while the mobile menu dialog is open. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-copper-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Display headings: condensed, uppercase, tight. */
+@utility font-display-tight {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+/* Long-form prose (legal pages, product long description). */
+@utility prose-nex {
+  max-width: 68ch;
+  color: var(--color-body);
+  & > * + * {
+    margin-top: 1em;
+  }
+  & h2 {
+    margin-top: 2.25em;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: 1.9rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+  & h3 {
+    margin-top: 1.75em;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  & ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  & li + li {
+    margin-top: 0.35em;
+  }
+  & a {
+    color: var(--color-copper-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  & strong {
+    color: var(--color-ink);
+  }
 }
