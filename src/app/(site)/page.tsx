@@ -1,69 +1,90 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 
-export default function Home() {
+import { JsonLd } from "@/components/json-ld";
+import { Reveal } from "@/components/motion/reveal";
+import { ProductCard } from "@/components/product/product-card";
+import { CtaBand } from "@/components/sections/cta-band";
+import { FaqList } from "@/components/sections/faq-list";
+import { HomeHero } from "@/components/sections/home-hero";
+import { IndustriesGrid } from "@/components/sections/industries-grid";
+import { LocationBand } from "@/components/sections/location-band";
+import { ProcessSteps } from "@/components/sections/process-steps";
+import { StatsStrip } from "@/components/sections/stats-strip";
+import { WhyUsGrid } from "@/components/sections/why-us-grid";
+import { ButtonLink } from "@/components/ui/button";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { siteConfig } from "@/config/site";
+import { faqs } from "@/content/faqs";
+import { products } from "@/content/products";
+import { faqJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Copper Scrap Supplier in Kundli, Sonipat | Delhi NCR & Haryana",
+    description: siteConfig.description,
+    path: "/",
+    keywords: [
+      "copper scrap supplier Sonipat",
+      "copper scrap Kundli",
+      "copper scrap dealer Delhi NCR",
+      "copper scrap Haryana",
+      "copper patti scrap",
+      "copper rassa scrap",
+      "millberry copper scrap India",
+    ],
+  }),
+  title: { absolute: "Copper Scrap Supplier in Kundli, Sonipat | NexMetal" },
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          className="h-5 w-[100px] dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <HomeHero />
+      <StatsStrip />
+
+      <Section aria-labelledby="products-title">
+        <SectionHeading
+          id="products-title"
+          eyebrow="Our grades"
+          title="Copper scrap, sorted by grade"
+          lead="Five copper grades, each sorted and graded before dispatch. Pick a grade for full specifications."
+          action={
+            <ButtonLink href="/products" variant="outline" arrow>
+              All products
+            </ButtonLink>
+          }
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="h-[14px] w-4 dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+        <ul className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((product, i) => (
+            <Reveal as="li" key={product.slug} delay={(i % 3) * 0.06}>
+              <ProductCard product={product} />
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
+      <WhyUsGrid />
+      <ProcessSteps />
+      <IndustriesGrid />
+      <LocationBand />
+
+      <Section tone="surface" aria-labelledby="faq-title">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading
+              id="faq-title"
+              eyebrow="FAQ"
+              title="Buying from NexMetal"
+              lead="Quick answers for purchase teams. Anything else — just call or WhatsApp."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <FaqList items={faqs} className="lg:col-span-8" />
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <CtaBand />
+      <JsonLd data={faqJsonLd(faqs)} />
+    </>
   );
 }

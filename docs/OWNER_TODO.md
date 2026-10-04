@@ -22,17 +22,19 @@ Each item matches a `// TODO(owner):` comment in the code. Find them all with `g
 - [ ] **Transport.** Who arranges and pays for it? Is pricing ex-yard or delivered?
 
 ## Process (`src/content/process.ts`)
+- [ ] **Samples and visits on the Quality page.** The closing banner offers samples and yard visits (`src/app/(site)/quality/page.tsx`). Confirm, or remove it.
 - [ ] **Process steps.** Confirm the 5 steps (sourcing → sorting → grading → packing → weighment/invoice/dispatch) match how the yard works. Name any equipment that can be mentioned truthfully, e.g. weighbridge, baling press, analyser.
 
 ## Photos (`public/images/products/<slug>/<n>.jpg`)
 Run `npm run check:images` for the current list. A copper placeholder is shown until each file is added.
+The current `1.jpg` for Patti, Rassa, Tally and Dori are cropped from your catalogue screenshots (only ~280 px wide) — replace them with full-size originals.
 - [ ] **Copper Strips (Patti):** 4 photos
 - [ ] **Copper Rassa (Wire):** 2 photos
-- [ ] **Copper Tally:** 3 photos
+- [ ] **Copper Tally:** 3 photos. The catalogue photo shows fine tangled wire rather than "cut plates and segment blocks" — please confirm it is the right photo.
 - [ ] **AC Pipes (Copper Tubes):** 1 photo. There is no real photo yet.
 - [ ] **Copper Dori:** 2 photos
 - [ ] **Hero, yard and process photos:** for `public/images/hero` and `public/images/process`.
-- [ ] **Logo.** A vector logo (SVG) if one exists. Otherwise the site uses the "NEXMETAL" text wordmark.
+- [ ] **Logo.** A vector logo (SVG) if one exists. The site currently uses a placeholder copper "N" mark plus the "NEXMETAL" wordmark (`src/components/ui/logo.tsx`), which is also used for the favicon and social images.
 
 Photo guidance: at least 1600 px on the long side, JPG, real NexMetal material, no watermarks.
 

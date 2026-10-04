@@ -72,7 +72,7 @@ Looking for a copper patti scrap supplier near Delhi? Call or WhatsApp us with t
       "Foundries & casting units",
     ],
     images: productImages("copper-strips-patti", [
-      "Pile of flat copper patti strips sorted at the NexMetal yard",
+      "Tangled flat copper patti strips sorted at the NexMetal yard",
       "Close-up of copper strip edges showing width and thickness",
       "Bundled copper patti scrap ready for weighment",
       "Copper busbar and strip offcuts graded for dispatch",
@@ -194,7 +194,7 @@ Need copper tally for your next melt? Call or WhatsApp with the quantity and del
       "Alloy & brass makers",
     ],
     images: productImages("copper-tally", [
-      "Clean-cut copper tally plates sorted by size",
+      "Copper tally scrap lot at the NexMetal yard",
       "Heavy copper segment blocks graded for melting",
       "Stack of copper tally pieces ready for dispatch",
     ]),
