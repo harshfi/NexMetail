@@ -31,7 +31,7 @@ The current `1.jpg` for Patti, Rassa, Tally and Dori are cropped from your catal
 - [ ] **Copper Strips (Patti):** 4 photos
 - [ ] **Copper Rassa (Wire):** 2 photos
 - [ ] **Copper Tally:** 3 photos. The catalogue photo shows fine tangled wire rather than "cut plates and segment blocks" — please confirm it is the right photo.
-- [ ] **AC Pipes (Copper Tubes):** 1 photo. There is no real photo yet.
+- [x] **AC Pipes (Copper Tubes):** photo supplied (1280×856). Confirm you own the rights to it or have a licence; if it came from another website, replace it with your own photo before launch.
 - [ ] **Copper Dori:** 2 photos
 - [ ] **Hero, yard and process photos:** for `public/images/hero` and `public/images/process`.
 - [ ] **Logo.** A vector logo (SVG) if one exists. The site currently uses a placeholder copper "N" mark plus the "NEXMETAL" wordmark (`src/components/ui/logo.tsx`), which is also used for the favicon and social images.

@@ -257,9 +257,8 @@ Tell us the form you prefer — bundles or sorted lengths — and the quantity, 
       "Alloy & brass makers",
       "Foundries & casting units",
     ],
-    // TODO(owner): real photo of AC copper pipe scrap. Renders the copper placeholder until supplied.
     images: productImages("ac-copper-pipes", [
-      "Straight and bent AC copper pipe scrap, cleaned of fittings",
+      "Pile of straight and bent AC copper pipes and tubes",
     ]),
     seo: {
       title: "AC Copper Pipe Scrap Supplier & Buyer | DHP Copper Tubes | Kundli",
